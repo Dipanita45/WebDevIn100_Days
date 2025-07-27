@@ -1,658 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WebDev100_Days</title>
-  <link rel="stylesheet" href="home.css" />
-  <!-- Favicon Setup -->
-  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-  <link rel="manifest" href="./site.webmanifest">
-
-  <meta content="100 Days, 100 Web Projects" property="og:title" />
-  <meta content="A collection of 100 web projects from basic to intermediate using html css and js."
-    property="og:description" />
-  <meta content="/" property="og:url" />
-  <meta name="description"
-    content="This is Day 01 of 100 Days Web Dev: a beautiful button hover animation using HTML and CSS.">
-
-  <meta name="description"
-    content="100 Days of Web Development — A journey through 100 fun and interactive HTML, CSS, and JS projects.">
-  <meta property="og:title" content="100 Days Web Projects | Learn Web Dev By Building">
-  <meta property="og:description"
-    content="Build 100 unique frontend projects while learning HTML, CSS, and JavaScript. Ideal for beginners to intermediate developers.">
-  <meta property="og:image" content="https://your-site.com/images/banner.png">
-  <meta property="og:url" content="https://your-site.com">
-
-
-  <meta content="https://i.imgur.com/3cztaa9.png" property="og:image" />
-  <meta content="#c2a3d6" data-react-helmet="true" name="theme-color" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Pushed CSS Code Here and Imported Bulma StyleSheet as well -->
-  <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-
-</head>
-<style type="text/css">
-
-    :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --text-color: #1f2937;
-            --light-bg: #f8fafc;
-            --dark-bg: #1e293b;
-            --dark-text: #f1f5f9;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif; /* Changed font to Montserrat */
-            transition: all 0.3s ease; /* Smooth Transitions for All Interactive Elements */
-        }
-
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        body.dark-theme {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1.5rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-
-
- body.dark-theme {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1.5rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-item {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .nav-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-color);
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        #searchInput {
-            padding: 0.8rem 1.2rem;
-            width: 100%;
-            max-width: 500px;
-            border: 2px solid #e2e8f0;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: var(--transition);
-            box-shadow: var(--card-shadow);
-        }
-
-        #searchInput:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background-color: white;
-            border-radius: 0.8rem;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
-        }
-
-        body.dark-theme .project-card {
-            background-color: #334155;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-image {
-            height: 160px;
-            overflow: hidden;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .project-card:hover .card-image img {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-
-        body.dark-theme .card-title {
-            color: var(--dark-text);
-        }
-
-        .card-description {
-            color: #64748b;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-link {
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .card-link:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .card-tech {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            font-size: 0.7rem;
-            padding: 0.3rem 0.6rem;
-            background-color: #e2e8f0;
-            border-radius: 1rem;
-            color: #334155;
-        }
-
-        body.dark-theme .tech-tag {
-            background-color: #475569;
-            color: #e2e8f0;
-        }
-
-        #no-projects {
-            text-align: center;
-            padding: 2rem;
-            font-size: 1.2rem;
-            color: var(--text-color);
-        }
-
-         .hero {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-color);
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        #searchInput {
-            padding: 12px 15px; /* Increased padding */
-            font-size: 17px; /* Slightly larger font */
-            border: 1px solid #ccc; /* Lighter border */
-            border-radius: 8px; /* More roun
-border-radius: 8px; /* More rounded corners */
-            width: 350px; /* Slightly wider */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* More prominent shadow */
-            transition: all 0.3s ease; /* Smooth transition for all properties */
-        }
-
-        #searchInput:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); /* Blue glow on focus */
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background-color: white;
-            border-radius: 0.8rem;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
-        }
-
-        body.dark-theme .project-card {
-            background-color: #334155;
-        }
-
-        body.dark-theme #no-projects {
-            color: var(--dark-text);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-image {
-            height: 160px;
-            overflow: hidden;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .project-card:hover .card-image img {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
- body.dark-theme .card-title {
-            color: var(--dark-text);
-        }
-
-        .card-description {
-            color: #64748b;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-link {
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .card-link:hover {
-            background-color: var(--secondary-color);
-              }
-
-        .card-tech {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            font-size: 0.7rem;
-            padding: 0.3rem 0.6rem;
-            background-color: #e2e8f0;
-            border-radius: 1rem;
-            color: #334155;
-        }
-
-        body.dark-theme .tech-tag {
-            background-color: #475569;
-            color: #e2e8f0;
-        }
-
-        
-        
-        footer {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
-            padding: 3rem 2rem;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-
-        .footer-section p {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #334155;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid #334155;
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-to-top:hover {
-            background-color: var(--secondary-color);
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 1rem;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            main {
-                padding: 0 1rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Project Portfolio Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS links -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="home.css">
 </head>
 <body class="light-theme">
+    <!-- Header/Navbar -->
     <header>
         <div class="navbar">
-            <div class="logo">
-                <i class="fas fa-code logo-icon"></i>
-                <span>Project Hub</span>
+            <div class="navbar-brand">
+                <span class="navbar-item has-text-weight-bold">My Project Portfolio</span>
             </div>
-            <div class="nav-links">
-                <a href="#" class="nav-item">Home</a>
-                <a href="#" class="nav-item">Projects</a>
-                <a href="#" class="nav-item">About</a>
-                <a href="#" class="nav-item">Contact</a>
-                <button class="theme-toggle" id="themeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
+            <nav>
+                <a class="navbar-item" href="#">Home</a>
+                <a class="navbar-item" href="#projects">Projects</a>
+                <a class="navbar-item" href="#about">About</a>
+                <a class="navbar-item" href="#contact">Contact</a>
+                <a class="button" id="theme-toggle" onclick="toggleTheme()">🌙</a>
+            </nav>
         </div>
     </header>
-
+    <!-- Hero Section -->
     <main>
-        <section class="hero">
-            <h1>Discover Amazing Projects</h1>
-            <p>Browse through our collection of open-source projects and find inspiration for your next coding adventure.</p>
+        <section id="hero" style="text-align:center; margin-top:3rem;">
+            <h1 id="title-heading">Showcase of My Projects</h1>
+            <p style="font-size:1.25rem;color:#555;">Modern, Interactive, and Always Improving</p>
         </section>
-
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search projects...">
+        <!-- Search Bar -->
+        <div id="search-bar">
+            <input type="text" id="searchInput" placeholder="Search your projects...">
+            <button id="searchButton" onclick="filterProjects()">Search</button>
         </div>
-
-        <div id="projects">
-            <!-- Project cards will be added here dynamically -->
-            <div id="no-projects">No projects found. Create one to get started!</div>
-        </div>
+        <!-- Projects Table -->
+        <section id="projects">
+            <table class="links">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Stack</th>
+                        <th>Status</th>
+                        <th>Live Link</th>
+                        <th>Repo</th>
+                    </tr>
+                </thead>
+                <tbody id="project-list">
+                    <tr>
+                        <td>AI Chatbot</td>
+                        <td>Python, Flask, HTML</td>
+                        <td>🚀 Live</td>
+                        <td><a href="https://aichatbot.example.com" target="_blank">Demo</a></td>
+                        <td><a href="https://github.com/yourname/aichatbot" target="_blank">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>Weather App</td>
+                        <td>React, Node, CSS</td>
+                        <td>✅ Completed</td>
+                        <td><a href="https://weatherapp.example.com" target="_blank">Demo</a></td>
+                        <td><a href="https://github.com/yourname/weatherapp" target="_blank">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>Task Manager</td>
+                        <td>Vue, Flask, MongoDB</td>
+                        <td>🛠 In Progress</td>
+                        <td><a href="#" style="color:#ccc;">Coming Soon</a></td>
+                        <td><a href="https://github.com/yourname/taskmanager" target="_blank">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>Portfolio Website</td>
+                        <td>HTML, CSS, JS</td>
+                        <td>✅ Completed</td>
+                        <td><a href="https://yourportfolio.com" target="_blank">Demo</a></td>
+                        <td><a href="https://github.com/yourname/portfolio" target="_blank">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>Crypto Price Tracker</td>
+                        <td>React, Chart.js</td>
+                        <td>🚀 Live</td>
+                        <td><a href="https://crypto.example.com" target="_blank">Demo</a></td>
+                        <td><a href="https://github.com/yourname/cryptotracker" target="_blank">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>Quiz App</td>
+                        <td>Angular, Node, Firebase</td>
+                        <td>✅ Completed</td>
+                        <td><a href="https://quiz.example.com" target="_blank">Demo</a></td>
+                        <td><a href="https://github.com/yourname/quizapp" target="_blank">GitHub</a></td>
+                    </tr>
+                    <!-- NEW PROJECTS ADDED BELOW -->
+                    <tr>
+                        <td>Expense Tracker</td>
+                        <td>React, Express, PostgreSQL</td>
+                        <td>✅ Completed</td>
+                        <td><a href="https://expensetracker.example.com" target="_blank">Demo</a></td>
+                        <td><a href="https://github.com/yourname/expensetracker" target="_blank">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>E-commerce Store</td>
+                        <td>Next.js, MongoDB, Stripe API</td>
+                        <td>🛠 In Progress</td>
+                        <td><a href="#" style="color:#ccc;">Coming Soon</a></td>
+                        <td><a href="https://github.com/yourname/ecommerce-store" target="_blank">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>Online Markdown Editor</td>
+                        <td>Vue, Node, Socket.io</td>
+                        <td>🚀 Live</td>
+                        <td><a href="https://markdowneditor.example.com" target="_blank">Demo</a></td>
+                        <td><a href="https://github.com/yourname/markdowneditor" target="_blank">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td>Personal Blog</td>
+                        <td>Gatsby, GraphQL</td>
+                        <td>✅ Completed</td>
+                        <td><a href="https://blog.example.com" target="_blank">Demo</a></td>
+                        <td><a href="https://github.com/yourname/personalblog" target="_blank">GitHub</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="no-projects" style="display:none;">No projects found.</div>
+        </section>
     </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>Project Hub is a platform for developers to showcase their open-source projects and collaborate with others in the community.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#" class="footer-link">Home</a></li>
-                    <li><a href="#" class="footer-link">Projects</a></li>
-                    <li><a href="#" class="footer-link">Contribute</a></li>
-                    <li><a href="#" class="footer-link">Documentation</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p><i class="fas fa-envelope"></i> contact@projecthub.com</p>
-                <p><i class="fas fa-phone"></i>
+    <!-- About and Contact sections -->
+    <section id="about" style="margin: 3rem auto; max-width:800px; text-align:center;">
+        <h2>About Me</h2>
+        <p style="font-size:1.1rem;">
+            Passionate full-stack developer with a love for building impactful tools. 
+            Always exploring new technologies and delivering modern, elegant solutions.
+        </p>
+    </section>
+    <section id="contact" style="margin: 3rem auto; text-align:center;">
+        <h2>Contact</h2>
+        <p>Let's connect:</p>
+        <div class="social-icons" style="justify-content:center;">
+            <a class="icon-link" href="https://github.com/yourname" target="_blank" aria-label="GitHub"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/github.svg" alt="GitHub" class="icon-svg"></a>
+            <a class="icon-link" href="https://linkedin.com/in/yourname" target="_blank" aria-label="LinkedIn"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn" class="icon-svg"></a>
+            <a class="icon-link" href="mailto:you@example.com" aria-label="Email"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/gmail.svg" alt="Email" class="icon-svg"></a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="text-align:center;">
+            &copy; 2025 <span id="footer_title">Your Name</span> | Built with ❤️ 
+        </div>
+    </footer>
+    <script>
+        // Live search functionality
+        function filterProjects() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const table = document.getElementById("project-list");
+            const rows = table.getElementsByTagName("tr");
+            let found = false;
+            for (let i = 0; i < rows.length; i++) {
+                let row = rows[i];
+                let text = row.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    row.style.display = "";
+                    found = true;
+                } else {
+                    row.style.display = "none";
+                }
+            }
+            document.getElementById("no-projects").style.display = found ? "none" : "";
+        }
+        // Theme toggle (light <-> dark)
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle("dark-theme");
+            body.classList.toggle("light-theme");
+            document.getElementById("theme-toggle").textContent = body.classList.contains("dark-theme") ? "☀️" : "🌙";
+        }
+    </script>
+</body>
+</html>
