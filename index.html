@@ -72,6 +72,23 @@
             justify-content: space-between;
         }
 
+        body.dark-theme {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+
+
  body.dark-theme {
             background-color: var(--dark-bg);
             color: var(--dark-text);
@@ -296,10 +313,155 @@ gap: 2rem;
             color: var(--text-color);
         }
 
+         .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        #searchInput {
+            padding: 12px 15px; /* Increased padding */
+            font-size: 17px; /* Slightly larger font */
+            border: 1px solid #ccc; /* Lighter border */
+            border-radius: 8px; /* More roun
+border-radius: 8px; /* More rounded corners */
+            width: 350px; /* Slightly wider */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+            transition: all 0.3s ease; /* Smooth transition for all properties */
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); /* Blue glow on focus */
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 0.8rem;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        body.dark-theme .project-card {
+            background-color: #334155;
+        }
+
         body.dark-theme #no-projects {
             color: var(--dark-text);
         }
 
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 160px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+ body.dark-theme .card-title {
+            color: var(--dark-text);
+        }
+
+        .card-description {
+            color: #64748b;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-link {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            background-color: var(--secondary-color);
+              }
+
+        .card-tech {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.6rem;
+            background-color: #e2e8f0;
+            border-radius: 1rem;
+            color: #334155;
+        }
+
+        body.dark-theme .tech-tag {
+            background-color: #475569;
+            color: #e2e8f0;
+        }
+
+        
+        
         footer {
             background-color: var(--dark-bg);
             color: var(--dark-text);
