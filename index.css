@@ -709,13 +709,13 @@ body {
   background-color: #f1f1f1;
   padding: 3rem 1rem;
   border-top: 2px solid #ddd;
-<<<<<<< HEAD
+
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to right, #c8f4c3, #88e988);
 
-=======
+
   font-family: 'Montserrat', sans-serif; /* Changed font to Montserrat */
->>>>>>> 0097ff8704c951b92eb02640e076a3eca7cf00df
+
 }
 
 .footer-wrapper {
@@ -752,15 +752,14 @@ body {
 
 .footer-text {
   color: #555;
-<<<<<<< HEAD
+
   font-size: 1.15rem;
   margin-bottom: 0.75rem;
   line-height: 1.5;
-=======
+
   font-size: 1rem; /* Slightly larger */
   margin-bottom: 0.85rem; /* Adjusted margin */
   line-height: 1.6; /* Increased line height */
->>>>>>> 0097ff8704c951b92eb02640e076a3eca7cf00df
 }
 
 .footer-link {
@@ -784,14 +783,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
+
   width: 50px;
   aspect-ratio: 1;
   font-size: 1.75rem;
-=======
+
   width: 45px; /* Slightly larger */
   height: 45px; /* Slightly larger */
->>>>>>> 0097ff8704c951b92eb02640e076a3eca7cf00df
+
   border-radius: 50%;
 
   background-color: #343a40; /* Darker background */
@@ -858,19 +857,19 @@ body {
 }
 
 .nav-links {
-<<<<<<< HEAD
+
   margin-top: 1.5rem;
 }
 
 .nav-links .vertical-links{
   display: inline-flex;
   gap: 2rem;
-=======
+
   margin-top: 1.8rem; /* Increased margin */
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem; /* Increased gap */
->>>>>>> 0097ff8704c951b92eb02640e076a3eca7cf00df
+
 }
 
 .nav-btn {
@@ -969,13 +968,10 @@ body.light-theme .subtitle has-text-centered{
 
 
 
->>>>>>> 0097ff8704c951b92eb02640e076a3eca7cf00df
+
 .vertical-links {
   flex-direction: column !important;
   align-items: flex-start !important;
   gap: 0.5rem;
 
 }
-=======
-}
-
