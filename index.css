@@ -962,11 +962,11 @@ body {
   width: 24px; /* Slightly larger */
   height: 24px; /* Slightly larger */
 }
-<<<<<<< HEAD
+
 body.light-theme .subtitle has-text-centered{
   color: black;
 }
-=======
+
 
 
 >>>>>>> 0097ff8704c951b92eb02640e076a3eca7cf00df
@@ -974,9 +974,8 @@ body.light-theme .subtitle has-text-centered{
   flex-direction: column !important;
   align-items: flex-start !important;
   gap: 0.5rem;
-<<<<<<< HEAD
+
 }
 =======
 }
 
->>>>>>> 0097ff8704c951b92eb02640e076a3eca7cf00df
